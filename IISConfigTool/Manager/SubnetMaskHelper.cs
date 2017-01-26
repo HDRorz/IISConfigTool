@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -11,7 +12,7 @@ namespace IISConfigTool.Manager
 	/// </summary>
 	public class SubnetMaskHelper
 	{
-		private bool UseSubNetMask = false;
+		private bool UseSubNetMask = Convert.ToBoolean(ConfigurationManager.AppSettings["UseSubNetMask"]);
 
 		public static Regex IP = new Regex(@"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$", RegexOptions.Compiled);
 
